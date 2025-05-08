@@ -22,8 +22,8 @@ Task Manager, kullanıcı kaydı, JWT kimlik doğrulamasıyla oturum açma ve he
 
 2.  **Repo'yu Klonlama:**
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/ahmetbabacan-dev/task-management-api
+    cd task-management-api
     ```
 
 3.  **Dependency'leri Kurma:**
