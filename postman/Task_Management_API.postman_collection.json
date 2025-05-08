@@ -1,0 +1,843 @@
+{
+	"info": {
+		"_postman_id": "285b7767-9cf5-4e8c-badf-2d7c0e55d336",
+		"name": "Task Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44730756"
+	},
+	"item": [
+		{
+			"name": "User Authentication",
+			"item": [
+				{
+					"name": "1. RegisterUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"charlie\",\r\n    \"password\": \"charlie123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/register_login.php?action=register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"register_login.php"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "register"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. RegisterUserAlreadyExists",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"charlie\",\r\n    \"password\": \"charlie123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/register_login.php?action=register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"register_login.php"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "register"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. RegisterMissingFields",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"charlie123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/register_login.php?action=register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"register_login.php"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "register"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. LoginSuccess",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"ahmet\",\r\n    \"password\": \"1145\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/register_login.php?action=login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"register_login.php"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "login"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. MissingLoginDetails",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"1145\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/register_login.php?action=login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"register_login.php"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "login"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. InvalidCredentials",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"ahmet\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/register_login.php?action=login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"register_login.php"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "login"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "7. CreateTaskSuccess",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"write short story\",\r\n    \"description\": \"write 10 pages\",\r\n    \"status\": \"in_progress\",\r\n    \"due_date\": \"2025-05-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8. CreateTaskMissingField",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"\",\r\n    \"description\": \"write 10 pages\",\r\n    \"status\": \"in_progress\",\r\n    \"due_date\": \"2025-05-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9. CreateTaskInvalidDateFormat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"write book\",\r\n    \"description\": \"write 10 pages\",\r\n    \"status\": \"in_progress\",\r\n    \"due_date\": \"22-05-2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10. CreateTaskPastDate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"write book\",\r\n    \"description\": \"write 10 pages\",\r\n    \"status\": \"in_progress\",\r\n    \"due_date\": \"2025-05-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11. ListAllTasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12. ListTasksWithStatusFilter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?status=pending",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13. ListTasksWithDateFilter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?date=2025-05-23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2025-05-23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14. ListSpecificTask",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?id=14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15. ListTaskUnauthorized",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "16. UpdateTaskSuccess",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"swim\",\r\n    \"description\": \"go to the beach\",\r\n    \"status\": \"pending\",\r\n    \"due_date\": \"2025-05-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?id=17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "17. UpdateTaskInvalidStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"swim\",\r\n    \"description\": \"go to the beach\",\r\n    \"status\": \"pendinggggg\",\r\n    \"due_date\": \"2025-05-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?id=17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "18. UpdateTaskUnauthorized",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"swim\",\r\n    \"description\": \"go to the beach\",\r\n    \"status\": \"pending\",\r\n    \"due_date\": \"2025-05-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "19. SoftDeleteTaskSuccess",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"swim\",\r\n    \"description\": \"go to the beach\",\r\n    \"status\": \"pending\",\r\n    \"due_date\": \"2025-05-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?id=14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "20. SoftDeleteTaskUnauthorized",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE3NDY3MjM5NzcsIm5iZiI6MTc0NjcyMzk3NywiZXhwIjoxNzQ2NzI3NTc3LCJkYXRhIjp7ImlkIjo1LCJ1c2VybmFtZSI6ImFobWV0In19.2ooi8VUbwuTsrnN15yBFPsFPV1x2UlV_1nTqwWQB8VY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"swim\",\r\n    \"description\": \"go to the beach\",\r\n    \"status\": \"pending\",\r\n    \"due_date\": \"2025-05-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/task_manager/tasks.php?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"task_manager",
+								"tasks.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
